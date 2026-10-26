@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vice Beach Roads</title>
+  <meta name="description" content="Explore Vice Beach roads and lanes, plan a route, and share map coordinates.">
+  <link rel="icon" href="data:,"><link rel="stylesheet" href="viewer.css"><script type="module" src="viewer.mjs"></script>
+</head>
+<body>
+  <main id="map-container" aria-label="Interactive road map">
+    <svg id="map" role="img" aria-label="Vice Beach roads. Drag to pan and scroll to zoom." xmlns="http://www.w3.org/2000/svg">
+      <defs><pattern id="paint" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="3" height="3" fill="#b7ae83"/><path d="M0 0V3" stroke="#efe1a0" stroke-width=".2"/></pattern></defs>
+      <image id="background"/><g id="surfaces"></g><g id="bands"></g><g id="islands"></g><g id="marks"></g><g id="arrows"></g><g id="junction-paths"></g><g id="labels"></g><g id="route"></g><g id="pins"></g><g id="location"></g>
+    </svg>
+    <header class="map-title"><span class="brand-mark" aria-hidden="true">V</span><div><h1>Vice Beach Roads</h1><p>Community road map</p></div></header>
+    <nav class="map-controls" aria-label="Map controls"><button id="zoom-in" title="Zoom in" aria-label="Zoom in">+</button><button id="zoom-out" title="Zoom out" aria-label="Zoom out">−</button><button id="fit" title="Show all roads">Fit map</button><button id="compare" title="Hold to view the original map">Compare</button><a id="download-mobile" href="network.xodr" download title="Download OpenDRIVE" aria-label="Download OpenDRIVE">↓</a></nav>
+    <section class="coordinate-card" aria-label="Map coordinates"><span class="eyebrow">MAP COORDINATES</span><output id="coordinates">Click the map to select a location</output><div class="coordinate-actions"><button id="copy-coordinates" disabled>Copy coordinates</button><button id="copy-link" disabled>Copy link</button></div><span class="coordinate-note">15,000 × 20,000 · X east, Z south</span></section>
+    <p id="notification" role="status" aria-live="polite"></p>
+  </main>
+  <aside class="panel">
+    <section><div class="section-heading"><h2>Plan a route</h2><span class="tag">Driving</span></div><p class="hint">Choose your start and destination on the map.</p><div class="route-buttons"><button id="set-start"><span class="pin-dot start"></span>Set start</button><button id="set-end"><span class="pin-dot end"></span>Set destination</button></div><div class="endpoint"><span class="pin-dot start"></span><span>Start</span><output id="start-label">Not selected</output></div><div class="endpoint"><span class="pin-dot end"></span><span>Destination</span><output id="end-label">Not selected</output></div><p id="route-status" role="status" aria-live="polite">Click “Set start” to begin.</p><button id="clear-route" class="text-button" disabled>Clear route</button></section>
+    <section><h2>Map layers</h2><label><input id="layer-roads" type="checkbox" checked>Roads and lanes</label><label><input id="layer-background" type="checkbox" checked>Yanis map</label><label><input id="layer-arrows" type="checkbox" checked>Direction arrows</label><label><input id="layer-junctions" type="checkbox">Junction paths</label><label><input id="layer-labels" type="checkbox">Road IDs</label><div class="legend"><span><i class="driving"></i>Driving</span><span><i class="parking"></i>Parking</span><span><i class="median"></i>Divider</span><span><i class="cycling"></i>Cycling</span></div></section>
+    <section><h2>Found a problem?</h2><p class="hint">Select the location and copy its coordinates or a map link to include in an issue.</p><button id="copy-report" disabled>Copy issue details</button><a id="new-issue" class="secondary-link" hidden target="_blank" rel="noopener">Open an issue ↗</a></section>
+    <footer><a class="download" href="network.xodr" download>Download OpenDRIVE <span aria-hidden="true">↓</span></a><a href="about.html">About this map</a></footer>
+  </aside>
+  <div id="loading" role="status"><span class="spinner"></span><p>Loading roads…</p></div>
+</body>
+</html>
