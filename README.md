@@ -23,10 +23,16 @@ Open <http://localhost:8000/>. No package installation or build step is needed.
 
 ## GitHub Pages
 
-Push this repository to GitHub with the default branch `main`, then select
-**Settings → Pages → Source → GitHub Actions**. The included workflow publishes
-the static viewer and OpenDRIVE file. Project sites under `/repository-name/`
-are supported; every asset uses a relative URL.
+Publish directly from the `main` branch:
+
+1. Open **Settings → Pages**.
+2. Set **Source → Deploy from a branch**.
+3. Select **main** and **/(root)**, then click **Save**.
+
+The repository already contains the complete static site and a root `.nojekyll`
+file. No custom GitHub Actions workflow or Jekyll build is required. Push updates
+to `main` to publish them. Project sites under `/repository-name/` are supported;
+every asset uses a relative URL.
 
 ## Report a problem
 
